@@ -1,0 +1,36 @@
+[user]
+	name = Torbjørn Vatn
+	email = torbjorn@vatn.org
+[color]
+  branch = auto
+  status = auto
+  diff = auto
+[alias]
+  a = add
+  ci = commit -v
+  cia = commit -v -a
+  cp = cherry-pick
+  l = log
+  ll = log -p
+  reb = rebase
+  up = pull --rebase --stat -v
+  co = checkout
+  st = status
+  br = branch
+  unstage = reset HEAD
+ 	plog = log --pretty=tformat:\"%h %Cblue%cr%Creset %cn %Cgreen%s%Creset\"
+  hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+[apply]
+  whitespace = nowarn
+[push]
+	default = tracking
+[core]
+	quotepath = false
+	editor = /usr/local/bin/vim
+[rerere]
+	enabled = 1
+[mergetool "ideaDiff"]
+	cmd = /Users/torbjorn/bin/ideaDiff "$PWD/$BASE" "$PWD/$REMOTE" "$PWD/$LOCAL" "$PWD/$MERGED"
+	trustExitCode = true
+[merge]
+	tool = ideaDiff

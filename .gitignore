@@ -1,0 +1,9 @@
+*un~
+target/
+.sbt/plugins/project/target/*
+.sbt/boot
+.sbt/staging
+.DS_Store
+.DS_Store
+.sbt/boot/
+.sbt/staging/
