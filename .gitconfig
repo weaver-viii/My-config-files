@@ -23,14 +23,9 @@
 [apply]
   whitespace = nowarn
 [push]
-	default = tracking
+	default = upstream
 [core]
 	quotepath = false
 	editor = /usr/local/bin/vim
 [rerere]
 	enabled = 1
-[mergetool "ideaDiff"]
-	cmd = /Users/torbjorn/bin/ideaDiff "$PWD/$BASE" "$PWD/$REMOTE" "$PWD/$LOCAL" "$PWD/$MERGED"
-	trustExitCode = true
-[merge]
-	tool = ideaDiff
