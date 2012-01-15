@@ -34,6 +34,10 @@ export NODE_PATH=/usr/local/lib/node_modules
 #GIT_PROXY
 export GIT_PROXY_COMMAND=/Users/torbjorn/.ssh/proxy_cmd_for_github
 
+#LEJOS
+export NXJ_HOME=/opt/lejos_nxj
+export DYLD_LIBRARY_PATH=$NXJ_HOME/bin
+
 #Aliases
 alias ls='ls -G'
 alias ll='ls -lh'
@@ -61,6 +65,7 @@ export PATH=/usr/local/Cellar/jruby/1.5.2/jruby/bin:$PATH #JRUBY
 export PATH=/opt/play-1.2:$PATH #PLAY
 export PATH=/Library/PostgreSQL/9.1/bin:$PATH #POSTGRESQL
 export PATH=$JAVA_HOME/bin:$M3_HOME/bin:$PATH
+export PATH=$NXJ_HOME/bin:$PATH
 
 #Brew
 if [ -f `brew --prefix`/etc/bash_completion ]; then
