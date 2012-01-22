@@ -5,6 +5,8 @@
   branch = auto
   status = auto
   diff = auto
+[format]
+  pretty = oneline
 [alias]
   a = add
   ci = commit -v
@@ -27,5 +29,12 @@
 [core]
 	quotepath = false
 	editor = /usr/local/bin/vim
+	excludesfile = /Users/torbjorn/.gitignore_global
 [rerere]
 	enabled = 1
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
