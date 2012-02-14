@@ -57,6 +57,11 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 nnoremap <tab> %
 vnoremap <tab> %
+""" Disable arrow keys
+noremap <Up> <nop>
+noremap <Down> <nop>
+noremap <Left> <nop>
+noremap <Right> <nop>
 nnoremap k gk
 nmap <silent> <unique> <F5> :call Bexec()<CR>
 vmap <silent> <unique> <F5> :call BexecVisual()<CR>

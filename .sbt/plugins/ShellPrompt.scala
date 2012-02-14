@@ -11,7 +11,7 @@ object ShellPrompt extends Plugin {
       }
       val current = """\*\s+(\w+)""".r
       def gitBranches = ("git branch --no-color" lines_! devnull mkString) 
-      "%s:%s>" format (name, current findFirstMatchIn gitBranches map (_.group(1)) getOrElse "-")
+      "%s: (%s) > " format (name, current findFirstMatchIn gitBranches map (_.group(1)) getOrElse "-")
     })
   )
 }

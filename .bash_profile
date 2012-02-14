@@ -2,7 +2,7 @@ export CLICOLOR=1
 
 #Maven
 #export MAVEN_OPTS="-Xms256m -Xmx512M -XX:PermSize=128M -XX:MaxPermSize=512M"
-export MAVEN_OPTS="-Xmx1024M -XX:MaxPermSize=256M -Dff2.profile=development -Dmaven.tomcat.path=/front -Dlog4j.configuration=file:/Users/torbjorn/Development/workspace/SG/ff2/front/src/main/resources/log4j-torbjorn.xml"
+export MAVEN_OPTS="-Xmx1024M -XX:MaxPermSize=256M -Dff2.profile=development -Dmaven.tomcat.path=/front"
 export M3_HOME="/usr/bin/mvn"
 export M3="$M3_HOME/bin"
 export REPO="$HOME/.m2/repository"
