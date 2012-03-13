@@ -31,9 +31,6 @@ export SBT_OPTS='-Xmx1500M -XX:MaxPermSize=512M'
 #NODE.JS
 export NODE_PATH=/usr/local/lib/node_modules
 
-#GIT_PROXY
-export GIT_PROXY_COMMAND=/Users/torbjorn/.ssh/proxy_cmd_for_github
-
 #LEJOS
 export NXJ_HOME=/opt/lejos_nxj
 export DYLD_LIBRARY_PATH=$NXJ_HOME/bin

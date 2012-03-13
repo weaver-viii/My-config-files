@@ -1,88 +1,150 @@
-syntax enable
-set background=dark
-"set background=light
-
-set showcmd   " Show (partial) command in status line.
-set showmatch   " Show matching brackets.
-set ignorecase    " Do case insensitive matching
-set smartcase   " Do smart case matching
-set incsearch   " Incremental search
-set autowrite   " Automatically save before commands like :next and :make
-set hidden             " Hide buffers when they are abandoned
-
-" My preferences
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
-set expandtab
-
-filetype off
-call pathogen#helptags()
-call pathogen#runtime_append_all_bundles()
-filetype plugin indent on
+" Use Vim settings, rather then Vi settings (much better!).
+" This must be first, because it changes other options as a side effect.
 set nocompatible
-set modelines=0
-set autoindent
-set encoding=utf-8
-"set number
-set pastetoggle=<F9>
-set ruler
-set shiftround
-set scrolloff=3
-set showmode
+
+" TODO: this may not be in the correct place. It is intended to allow overriding <Leader>.
+" source ~/.vimrc.before if it exists.
+if filereadable(expand("~/.vimrc.before"))
+  source ~/.vimrc.before
+endif
+
+" =============== Pathogen Initialization ===============
+" This loads all the plugins in ~/.vim/bundle
+" Use tpope's pathogen plugin to manage all other plugins
+
+ call pathogen#infect()
+ call pathogen#helptags()
+
+" ================ General Config ====================
+
+set number                      "Line numbers are good
+set backspace=indent,eol,start  "Allow backspace in insert mode
+set history=1000                "Store lots of :cmdline history
+set showcmd                     "Show incomplete cmds down the bottom
+set showmode                    "Show current mode down the bottom
+set gcr=a:blinkon0              "Disable cursor blink
+
+set autoread                    "Reload files changed outside vim
+
+" This makes vim act like all other editors, buffers can
+" exist in the background without being in a window.
+" http://items.sjbach.com/319/configuring-vim-right
 set hidden
-set wildmenu
-set wildmode=list:longest
-set visualbell
-"set cursorline
-set ttyfast
-set backspace=indent,eol,start
-set laststatus=2
-set relativenumber
-set undofile
-let mapleader = ","
-set hlsearch
-set gdefault
-nnoremap / /\v
-vnoremap / /\v
-nnoremap <leader><space> :noh<cr>
-noremap <Leader>s :update<CR>
-nnoremap <leader>v V`]
-nnoremap <leader>h <C-w>s<C-w>l
-nnoremap <leader>c <space>
-nnoremap <leader>d :execute 'NERDTreeToggle ' . getcwd()<CR>
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-nnoremap <tab> %
-vnoremap <tab> %
+
+" =============== Key mappings =====================
+
 """ Disable arrow keys
 noremap <Up> <nop>
 noremap <Down> <nop>
 noremap <Left> <nop>
 noremap <Right> <nop>
-nnoremap k gk
-nmap <silent> <unique> <F5> :call Bexec()<CR>
-vmap <silent> <unique> <F5> :call BexecVisual()<CR>
-""" Fix home and end keybindings for screen
-map [F $
-imap [F $
-map [H g0
-imap [H g0
-set wrap
-set textwidth=100
-set formatoptions=qrn1
-"set colorcolumn=106
-"set list
-"set listchars=tab:▸\ ,eol:¬
-au FocusLost * :wa
+
+" Follow links in help
+map <F12> <C-]>
+" Nerdtree shortcut
+nnoremap <leader>d :execute 'NERDTreeToggle ' . getcwd()<CR>
+
+" ================ Vundle Settings ================
+
+ filetype off                   " required!
+
+ set rtp+=~/.vim/bundle/vundle/
+ call vundle#rc()
+
+ " let Vundle manage Vundle
+ " required! 
+ Bundle 'gmarik/vundle'
+
+ " My Bundles here:
+ "
+ " original repos on github
+ Bundle 'Lokaltog/vim-easymotion'
+ Bundle 'Lokaltog/vim-powerline'
+ Bundle 'scrooloose/nerdtree.git'
+ Bundle 'altercation/vim-colors-solarized'
+ Bundle 'tpope/vim-git.git'
+ Bundle 'tpope/vim-surround.git'
+ Bundle 'tsaleh/vim-align.git'
+ Bundle 'tsaleh/vim-supertab.git'
+ Bundle 'bdd/vim-scala.git'
+ Bundle 'noxoc/vim-tcomment.git'
+ Bundle 'vim-scripts/VimClojure'
+ Bundle 'vim-scripts/plist.vim'
+ Bundle 'mikewest/vimroom'
+ Bundle 'suan/vim-instant-markdown'
+ " vim-scripts repos
+ " non github repos
+ " ...
+
+ filetype plugin indent on     " required! 
 
 " Settings for VimClojure
  let vimclojure#HighlightBuiltins=1      " Highlight Clojure's builtins
  let vimclojure#ParenRainbow=1           " Rainbow parentheses'!
 
-map <F12> <C-]>
-"set t_Co=16
-"let g:solarized_termcolors=16
+"turn on syntax highlighting and use solarized colorsheme
+syntax on
+set background=dark
 colorscheme solarized
+
+" ================ Search Settings  =================
+
+set incsearch        "Find the next match as we type the search
+set hlsearch         "Hilight searches by default
+set viminfo='100,f1  "Save up to 100 marks, enable capital marks
+
+" ================ Turn Off Swap Files ==============
+
+set noswapfile
+set nobackup
+set nowb
+
+" ================ Persistent Undo ==================
+" Keep undo history across sessions, by storing in file.
+" Only works in MacVim (gui) mode.
+
+if has('gui_running')
+  set undodir=~/.vim/backups
+  set undofile
+endif
+
+" ================ Indentation ======================
+
+set autoindent
+set smartindent
+set smarttab
+set shiftwidth=2
+set softtabstop=2
+set tabstop=2
+set expandtab
+
+filetype plugin on
+filetype indent on
+
+" Display tabs and trailing spaces visually
+set list listchars=tab:\ \ ,trail:·
+
+set nowrap       "Don't wrap lines
+set linebreak    "Wrap lines at convenient points
+
+set pastetoggle=<F9> "Toggles correctly indented pasteing
+
+" ================ Folds ============================
+
+set foldmethod=indent   "fold based on indent
+set foldnestmax=3       "deepest fold is 3 levels
+set nofoldenable        "dont fold by default
+
+" ================ Completion =======================
+
+set wildmode=list:longest
+set wildmenu                "enable ctrl-n and ctrl-p to scroll thru matches
+set wildignore=*.o,*.obj,*~ "stuff to ignore when tab completing
+set wildignore+=*vim/backups*
+
+" ================ Scrolling ========================
+
+set scrolloff=8         "Start scrolling when we're 8 lines away from margins
+set sidescrolloff=15
+set sidescroll=1
+
