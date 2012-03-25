@@ -72,6 +72,8 @@ nnoremap <leader>d :execute 'NERDTreeToggle ' . getcwd()<CR>
  Bundle 'vim-scripts/plist.vim'
  Bundle 'mikewest/vimroom'
  Bundle 'suan/vim-instant-markdown'
+ Bundle 'jeffkreeftmeijer/vim-numbertoggle'
+ Bundle 'jpalardy/vim-slime'
  " vim-scripts repos
  " non github repos
  " ...
@@ -148,3 +150,8 @@ set scrolloff=8         "Start scrolling when we're 8 lines away from margins
 set sidescrolloff=15
 set sidescroll=1
 
+" ================ Clojure ===========================
+
+let g:clj_highlight_builtins=1      " Highlight Clojure's builtins
+let g:clj_paren_rainbow=1           " Rainbow parentheses'!
+let g:slime_target = "tmux"
