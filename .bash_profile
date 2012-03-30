@@ -1,5 +1,3 @@
-export CLICOLOR=1
-
 #Maven
 #export MAVEN_OPTS="-Xms256m -Xmx512M -XX:PermSize=128M -XX:MaxPermSize=512M"
 export MAVEN_OPTS="-Xmx1024M -XX:MaxPermSize=256M -Dff2.profile=development -Dmaven.tomcat.path=/front"
@@ -69,8 +67,16 @@ if [ -f `brew --prefix`/etc/bash_completion ]; then
   . `brew --prefix`/etc/bash_completion
 fi
 
+
+#Time since last git commit
+function commitTime(){
+  if git ls-files >& /dev/null; then
+    echo " $(git log --pretty=format:"%ar" | head -n 1 | sed 's/\([0-9]*\) \(.\).*/\1\2/')"
+  fi
+}
+
 #Prompt
-PS1='\[\033[0;31m\]\w\[\033[0;33m\] $(__git_ps1 " (%s)")\[\033[0;00m\] ➜ '
+PS1='\[\033[0;31m\]\w\[\033[0;33m\] $(__git_ps1 " (%s)")\[\033[0;00m\]$(commitTime) ➜ '
 
 #Growl the c status
 growlnotify -m "`c ?`"
