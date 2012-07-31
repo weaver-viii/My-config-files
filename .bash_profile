@@ -1,6 +1,8 @@
+# Init rbenv
+eval "$(rbenv init -)"
+
 #Maven
-#export MAVEN_OPTS="-Xms256m -Xmx512M -XX:PermSize=128M -XX:MaxPermSize=512M"
-export MAVEN_OPTS="-Xmx1024M -XX:MaxPermSize=256M -Dff2.profile=development -Dmaven.tomcat.path=/front"
+export MAVEN_OPTS="-Xmx1024M -XX:MaxPermSize=256M -Dmaven.tomcat.path=/front -Dlogback.configurationFile=file:/Users/torbjorn/Development/workspace/SG/ff2/front/src/main/resources/logback-torbjorn.xml"
 export M3_HOME="/usr/bin/mvn"
 export M3="$M3_HOME/bin"
 export REPO="$HOME/.m2/repository"
@@ -9,7 +11,7 @@ export REPO="$HOME/.m2/repository"
 export AKKA_HOME=/Applications/typesafe-stack
 
 #Scala
-export SCALA_HOME=/usr/local/Cellar/scala/2.9.0.1
+export SCALA_HOME=/usr/local/Cellar/scala/2.9.1-1
 
 #Java
 export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Home
@@ -40,6 +42,7 @@ alias la='ls -lah'
 alias st='git st'
 alias gitx='gitx --all'
 alias g='git'
+alias git=hub
 complete -o default -o nospace -F _git g
 alias ?='cat ~/bin/terminal_help'
 alias c="ruby ~/bin/c.rb"
@@ -54,10 +57,10 @@ set -P
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH #BREW
 export PATH=/Users/torbjorn/Development/workspace/SG/ff2/scripts:$PATH #hack&ship
 export PATH=~/bin:$PATH #BIN & TUNNELS
-export PATH=~/bin/gitExtras:$PATH #GIT EXTRAS
 export PATH=~/bin/sgStuff:$PATH #SG STUFF
+export PATH=~/bin/gitExtras:$PATH #GIT EXTRAS
+export PATH=~/bin/git-playback:$PATH #GIT PLAYBACK
 export PATH=/usr/local/Cellar/jruby/1.5.2/jruby/bin:$PATH #JRUBY
-export PATH=/opt/play-2.0:$PATH #PLAY
 export PATH=/Library/PostgreSQL/9.1/bin:$PATH #POSTGRESQL
 export PATH=$JAVA_HOME/bin:$M3_HOME/bin:$PATH
 export PATH=$NXJ_HOME/bin:$PATH
@@ -67,6 +70,22 @@ if [ -f `brew --prefix`/etc/bash_completion ]; then
   . `brew --prefix`/etc/bash_completion
 fi
 
+#PROXY
+function _proxy() {
+  if $1; then
+    echo "PROXY ON"
+    export http_proxy=no-sfd6-websec1.z42.no.tconet.net:80
+    export ALL_PROXY=$http_proxy
+    echo $ALL_PROXY
+  else
+    echo "PROXY OFF"
+    export http_proxy=
+    export ALL_PROXY=
+    echo $ALL_PROXY
+  fi
+}
+alias proxyOn='_proxy true'
+alias proxyOff='_proxy false'
 
 #Time since last git commit
 function commitTime(){
@@ -81,9 +100,6 @@ PS1='\[\033[0;31m\]\w\[\033[0;33m\] $(__git_ps1 " (%s)")\[\033[0;00m\]$(commitTi
 #Growl the c status
 growlnotify -m "`c ?`"
 
-#RVM
-[[ -s "/Users/torbjorn/.rvm/scripts/rvm" ]] && source "/Users/torbjorn/.rvm/scripts/rvm"
-
 #Setting the tab title
 function mycd() {
   if [ -n "$*" ]; then
@@ -97,16 +113,3 @@ alias cd=mycd
 
 whosonport () { lsof -i :$*; }
 
-###begin-jump-bash_profile
-#
-# Installation:
-# jump >> ~/.bash_profile && source ~/.bash_profile
-#
-
-function jump {
-  local newDir=$(JUMPPROFILE=1 command jump "$@");
-  cd "$newDir";
-}
-alias j="jump -a"
-
-###end-jump-bash_profile

@@ -5,6 +5,7 @@
   branch = auto
   status = auto
   diff = auto
+  ui = 1
 [format]
   pretty = oneline
 [alias]
@@ -17,11 +18,19 @@
   reb = rebase
   up = pull --rebase --stat -v
   co = checkout
-  st = status
+  st  = status -sb
   br = branch
   unstage = reset HEAD
  	plog = log --pretty=tformat:\"%h %Cblue%cr%Creset %cn %Cgreen%s%Creset\"
   hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+	switch = !legit switch \"$@\"
+	branches = !legit branches
+	sprout = !legit sprout \"$@\"
+	unpublish = !legit unpublish \"$@\"
+	harvest = !legit harvest \"$@\"
+	sync = !legit sync \"$@\"
+	publish = !legit publish \"$@\"
+	graft = !legit graft \"$@\"
 [apply]
   whitespace = nowarn
 [push]
@@ -38,3 +47,5 @@
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
+[branch]
+  autosetuprebase = always

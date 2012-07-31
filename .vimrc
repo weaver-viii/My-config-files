@@ -2,11 +2,10 @@
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
-" TODO: this may not be in the correct place. It is intended to allow overriding <Leader>.
-" source ~/.vimrc.before if it exists.
-if filereadable(expand("~/.vimrc.before"))
-  source ~/.vimrc.before
-endif
+" Source the vimrc file after saving it
+if has("autocmd")
+  autocmd bufwritepost .vimrc source $MYVIMRC
+endif"
 
 " =============== Pathogen Initialization ===============
 " This loads all the plugins in ~/.vim/bundle
@@ -43,10 +42,50 @@ inoremap <Down> <nop>
 inoremap <Left> <nop>
 inoremap <Right> <nop>
 
+" navigate splits with c-hjkl
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
+
+" Remap leader to ,
+let mapleader = ","
+
+" ,r returns to file explorer
+map ,r :Rexplore<CR>
+
+" ,l open TagList
+map ,l :TlistToggle<CR>
+
 " Follow links in help
 map <F12> <C-]>
+
 " Nerdtree shortcut
-nnoremap <leader>d :execute 'NERDTreeToggle ' . getcwd()<CR>
+""nnoremap <leader>d :execute 'NERDTreeToggle ' . getcwd()<CR>
+map <Leader>d <plug>NERDTreeTabsToggle<CR>
+
+" Quick buffer change
+nnoremap <F5> :buffers<CR>:buffer<Space>
+
+" Quick save
+noremap <Leader>s :update<CR>
+
+" Vmux mappings
+map <Leader>vp :PromptVimTmuxCommand<CR>
+vmap <Leader>vs "vy :call RunVimTmuxCommand(@v)<CR>
+nmap <Leader>vs vip<LocalLeader>vs<CR>
+
+" Deselect search results
+nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
+
+" Navigate in tabs
+map th :tabnext<CR>
+map tl :tabprev<CR>
+map tn :tabnew<CR>
+map td :tabclose<CR>
+
+" Comment out code
+map <Leader>c <c-_><c-_>
 
 " ================ Vundle Settings ================
 
@@ -67,17 +106,29 @@ nnoremap <leader>d :execute 'NERDTreeToggle ' . getcwd()<CR>
  Bundle 'scrooloose/nerdtree.git'
  Bundle 'altercation/vim-colors-solarized'
  Bundle 'tpope/vim-git.git'
- Bundle 'tpope/vim-surround.git'
  Bundle 'tsaleh/vim-align.git'
- Bundle 'tsaleh/vim-supertab.git'
  Bundle 'bdd/vim-scala.git'
  Bundle 'noxoc/vim-tcomment.git'
  Bundle 'vim-scripts/VimClojure'
  Bundle 'vim-scripts/plist.vim'
- Bundle 'mikewest/vimroom'
- Bundle 'suan/vim-instant-markdown'
  Bundle 'jeffkreeftmeijer/vim-numbertoggle'
  Bundle 'jpalardy/vim-slime'
+ Bundle 'juanpabloaj/help.vim'
+ Bundle 'ervandew/supertab'
+ Bundle 'scottstvnsn/autoclose.vim'
+ Bundle 'vim-scripts/surround.vim'
+ Bundle 'benmills/vimux'
+ Bundle 'vim-scripts/taglist.vim'
+ Bundle 'lukerandall/haskellmode-vim'
+ Bundle 'jistr/vim-nerdtree-tabs'
+ Bundle 'vim-scripts/tComment'
+ Bundle 'kien/ctrlp.vim'
+
+" Snipmate bundles"
+ Bundle 'MarcWeber/vim-addon-mw-utils'
+ Bundle 'tomtom/tlib_vim'
+ Bundle 'snipmate-snippets'
+ Bundle 'garbas/vim-snipmate'
  " vim-scripts repos
  " non github repos
  " ...
@@ -104,15 +155,6 @@ set viminfo='100,f1  "Save up to 100 marks, enable capital marks
 set noswapfile
 set nobackup
 set nowb
-
-" ================ Persistent Undo ==================
-" Keep undo history across sessions, by storing in file.
-" Only works in MacVim (gui) mode.
-
-if has('gui_running')
-  set undodir=~/.vim/backups
-  set undofile
-endif
 
 " ================ Indentation ======================
 
@@ -159,3 +201,10 @@ set sidescroll=1
 let g:clj_highlight_builtins=1      " Highlight Clojure's builtins
 let g:clj_paren_rainbow=1           " Rainbow parentheses'!
 let g:slime_target = "tmux"
+
+" ================ Tag List ==========================
+let tlist_clojure_settings = 'lisp;f:function'
+let Tlist_Exit_OnlyWindow=1
+
+" ================ Haskell ===========================
+au BufEnter *.hs compiler ghc
