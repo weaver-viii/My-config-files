@@ -55,7 +55,7 @@ let mapleader = ","
 map ,r :Rexplore<CR>
 
 " ,l open TagList
-map ,l :TlistToggle<CR>
+map ,tl :TlistToggle<CR>
 
 " Follow links in help
 map <F12> <C-]>
@@ -105,7 +105,6 @@ map <Leader>c <c-_><c-_>
  Bundle 'Lokaltog/vim-powerline'
  Bundle 'scrooloose/nerdtree.git'
  Bundle 'altercation/vim-colors-solarized'
- Bundle 'tpope/vim-git.git'
  Bundle 'tsaleh/vim-align.git'
  Bundle 'bdd/vim-scala.git'
  Bundle 'noxoc/vim-tcomment.git'
@@ -121,8 +120,9 @@ map <Leader>c <c-_><c-_>
  Bundle 'vim-scripts/taglist.vim'
  Bundle 'lukerandall/haskellmode-vim'
  Bundle 'jistr/vim-nerdtree-tabs'
- Bundle 'vim-scripts/tComment'
  Bundle 'kien/ctrlp.vim'
+ Bundle 'liquidz/lein-vim'
+ Bundle 'tpope/vim-fugitive'
 
 " Snipmate bundles"
  Bundle 'MarcWeber/vim-addon-mw-utils'
@@ -141,8 +141,12 @@ map <Leader>c <c-_><c-_>
 
 "turn on syntax highlighting and use solarized colorsheme
 syntax on
-set background=dark
+set background=light
 colorscheme solarized
+
+" Settings for Powerline
+let g:Powerline_symbols = 'fancy'
+set laststatus=2
 
 " ================ Search Settings  =================
 
@@ -203,8 +207,10 @@ let g:clj_paren_rainbow=1           " Rainbow parentheses'!
 let g:slime_target = "tmux"
 
 " ================ Tag List ==========================
+
 let tlist_clojure_settings = 'lisp;f:function'
 let Tlist_Exit_OnlyWindow=1
 
 " ================ Haskell ===========================
+
 au BufEnter *.hs compiler ghc
