@@ -95,7 +95,7 @@ function commitTime(){
 }
 
 #Prompt
-PS1='\[\033[0;31m\]\w\[\033[0;33m\] $(__git_ps1 " (%s)")\[\033[0;00m\]$(commitTime) ➜ '
+PS1='\[\033[0;31m\]\w\[\033[0;33m\] $(__git_ps1 " (%s)")\[\033[0;00m\]$(commitTime)\n➜ '
 
 #Growl the c status
 growlnotify -m "`c ?`"
