@@ -17,7 +17,7 @@ export SCALA_HOME=/usr/local/Cellar/scala/2.9.1-1
 export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Home
 
 #JRebel
-export JREBEL_HOME=/Applications/ZeroTurnaround/JRebel
+export JREBEL_HOME=/Applications/JRebel
 
 #GAE
 export GAE_PATH=/opt/appengine-java-sdk-1.3.4
@@ -27,13 +27,6 @@ export RUBYOPT=rubygems
 
 #SBT_OPTS
 export SBT_OPTS='-Xmx1500M -XX:MaxPermSize=512M'
-
-#NODE.JS
-export NODE_PATH=/usr/local/lib/node_modules
-
-#LEJOS
-export NXJ_HOME=/opt/lejos_nxj
-export DYLD_LIBRARY_PATH=$NXJ_HOME/bin
 
 #Aliases
 alias ls='ls -G'
@@ -95,7 +88,7 @@ function commitTime(){
 }
 
 #Prompt
-PS1='\[\033[0;31m\]\w\[\033[0;33m\] $(__git_ps1 " (%s)")\[\033[0;00m\]$(commitTime)\n➜ '
+PS1='\[\033[0;31m\]\w\[\033[0;33m\] $(__git_ps1 " (%s)")\[\033[0;00m\]$(commitTime)\n❤ '
 
 #Growl the c status
 growlnotify -m "`c ?`"

@@ -87,6 +87,9 @@ map td :tabclose<CR>
 " Comment out code
 map <Leader>c <c-_><c-_>
 
+" Quick format XML
+map <leader>fx :1,%s/>\s*</>\r</g<CR>gg=G
+
 " ================ Vundle Settings ================
 
  filetype off                   " required!
