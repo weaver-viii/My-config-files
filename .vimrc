@@ -126,6 +126,7 @@ map <leader>fx :1,%s/>\s*</>\r</g<CR>gg=G
  Bundle 'kien/ctrlp.vim'
  Bundle 'liquidz/lein-vim'
  Bundle 'tpope/vim-fugitive'
+ Bundle 'sukima/xmledit'
 
 " Snipmate bundles"
  Bundle 'MarcWeber/vim-addon-mw-utils'
