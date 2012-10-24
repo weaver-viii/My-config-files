@@ -67,14 +67,13 @@ fi
 function _proxy() {
   if $1; then
     echo "PROXY ON"
-    export http_proxy=no-sfd6-websec1.z42.no.tconet.net:80
+    export http_proxy=http://no-sfd6-websec1.z42.no.tconet.net:80
     export ALL_PROXY=$http_proxy
     echo $ALL_PROXY
   else
     echo "PROXY OFF"
     export http_proxy=
     export ALL_PROXY=
-    echo $ALL_PROXY
   fi
 }
 alias proxyOn='_proxy true'
@@ -87,8 +86,15 @@ function commitTime(){
   fi
 }
 
+#Checks wheter the proxy is enabled or not
+function proxyEnabled() {
+  if [ -n "$ALL_PROXY" ]; then
+    echo "⟲ "
+  fi
+}
+
 #Prompt
-PS1='\[\033[0;31m\]\w\[\033[0;33m\] $(__git_ps1 " (%s)")\[\033[0;00m\]$(commitTime)\n❤ '
+PS1='\[\033[0;31m\]\w\[\033[0;33m\] $(__git_ps1 " (%s)")\[\033[0;00m\]$(commitTime)\n$(proxyEnabled)❤ '
 
 #Growl the c status
 growlnotify -m "`c ?`"
