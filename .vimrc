@@ -90,6 +90,13 @@ map <Leader>c <c-_><c-_>
 " Quick format XML
 map <leader>fx :1,%s/>\s*</>\r</g<CR>gg=G
 
+" Inserts new line below"
+map <S-Enter> O<Esc>j
+map <CR> o<Esc>k
+
+" Remap ESC to jj
+inoremap jj <ESC>
+
 " ================ Vundle Settings ================
 
  filetype off                   " required!
@@ -104,22 +111,21 @@ map <leader>fx :1,%s/>\s*</>\r</g<CR>gg=G
  " My Bundles here:
  "
  " original repos on github
- Bundle 'Lokaltog/vim-easymotion'
  Bundle 'Lokaltog/vim-powerline'
  Bundle 'scrooloose/nerdtree.git'
  Bundle 'altercation/vim-colors-solarized'
  Bundle 'tsaleh/vim-align.git'
- Bundle 'bdd/vim-scala.git'
- Bundle 'noxoc/vim-tcomment.git'
+ Bundle 'derekwyatt/vim-scala'
+ Bundle 'jmartindf/vim-tcomment'
  Bundle 'vim-scripts/VimClojure'
  Bundle 'vim-scripts/plist.vim'
  Bundle 'jeffkreeftmeijer/vim-numbertoggle'
  Bundle 'jpalardy/vim-slime'
  Bundle 'juanpabloaj/help.vim'
  Bundle 'ervandew/supertab'
- Bundle 'scottstvnsn/autoclose.vim'
+ Bundle 'Townk/vim-autoclose'
  Bundle 'vim-scripts/surround.vim'
- Bundle 'benmills/vimux'
+ Bundle 'epeli/slimux'
  Bundle 'vim-scripts/taglist.vim'
  Bundle 'lukerandall/haskellmode-vim'
  Bundle 'jistr/vim-nerdtree-tabs'
@@ -127,6 +133,8 @@ map <leader>fx :1,%s/>\s*</>\r</g<CR>gg=G
  Bundle 'liquidz/lein-vim'
  Bundle 'tpope/vim-fugitive'
  Bundle 'sukima/xmledit'
+ Bundle 'tpope/vim-sensible'
+ Bundle 'airblade/vim-gitgutter'
 
 " Snipmate bundles"
  Bundle 'MarcWeber/vim-addon-mw-utils'

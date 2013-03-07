@@ -2,9 +2,7 @@
 eval "$(rbenv init -)"
 
 #Maven
-export MAVEN_OPTS="-Xmx1024M -XX:MaxPermSize=256M -Dmaven.tomcat.path=/front -Dlogback.configurationFile=file:/Users/torbjorn/Development/workspace/SG/ff2/front/src/main/resources/logback-torbjorn.xml"
-export M3_HOME="/usr/bin/mvn"
-export M3="$M3_HOME/bin"
+export MAVEN_OPTS="-Xmx1024M -XX:MaxPermSize=256M  -Dlogback.configurationFile=file:/Users/torbjorn/Development/workspace/SG/ff2/front/src/main/resources/logback-torbjorn.xml"
 export REPO="$HOME/.m2/repository"
 
 #Akka
@@ -68,11 +66,15 @@ function _proxy() {
   if $1; then
     echo "PROXY ON"
     export http_proxy=http://no-sfd6-websec1.z42.no.tconet.net:80
+    export HTTP_PROXY=http://no-sfd6-websec1.z42.no.tconet.net:80
+    export https_proxy=http://no-sfd6-websec1.z42.no.tconet.net:80
+    export HTTPS_PROXY=http://no-sfd6-websec1.z42.no.tconet.net:80
     export ALL_PROXY=$http_proxy
     echo $ALL_PROXY
   else
     echo "PROXY OFF"
     export http_proxy=
+    export https_proxy=
     export ALL_PROXY=
   fi
 }
