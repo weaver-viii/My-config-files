@@ -12,7 +12,7 @@ export AKKA_HOME=/Applications/typesafe-stack
 export SCALA_HOME=/usr/local/Cellar/scala/2.9.1-1
 
 #Java
-export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Home
+export JAVA_HOME=$(/usr/libexec/java_home)
 
 #JRebel
 export JREBEL_HOME=/Applications/JRebel
@@ -25,6 +25,9 @@ export RUBYOPT=rubygems
 
 #SBT_OPTS
 export SBT_OPTS='-Xmx1500M -XX:MaxPermSize=512M'
+
+#EDITOR
+export EDITOR=/usr/local/bin/vim
 
 #Aliases
 alias ls='ls -G'
@@ -62,8 +65,8 @@ if [ -f `brew --prefix`/etc/bash_completion ]; then
 fi
 
 #PROXY
-function _proxy() {
-  if $1; then
+function proxy() {
+  if [ -z "$ALL_PROXY" ]; then
     echo "PROXY ON"
     export http_proxy=http://no-sfd6-websec1.z42.no.tconet.net:80
     export HTTP_PROXY=http://no-sfd6-websec1.z42.no.tconet.net:80
@@ -78,8 +81,6 @@ function _proxy() {
     export ALL_PROXY=
   fi
 }
-alias proxyOn='_proxy true'
-alias proxyOff='_proxy false'
 
 #Time since last git commit
 function commitTime(){
