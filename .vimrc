@@ -97,6 +97,9 @@ map <CR> o<Esc>k
 " Remap ESC to jj
 inoremap jj <ESC>
 
+" Sane yanking and pasting
+xnoremap p pgvy
+
 " ================ Vundle Settings ================
 
  filetype off                   " required!
