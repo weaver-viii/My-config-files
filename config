@@ -1,3 +1,0 @@
-host nas-services* nas-testservices* nas-iservices*    
-  User torvat  
-  ProxyCommand ssh torvat@nas-login.osl.basefarm.net nc %h %p
