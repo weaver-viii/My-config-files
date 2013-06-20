@@ -6,6 +6,7 @@ set completion-ignore-case on
 set completion-prefix-display-length 2
 set show-all-if-ambiguous on
 set show-all-if-unmodified on
+set completion-ignore-case on
 
 # allow the use of the Home/End keys
 "\e[1~": beginning-of-line
@@ -20,6 +21,6 @@ set show-all-if-unmodified on
 "\e[5~": beginning-of-history
 "\e[6~": end-of-history
 
-# alternate mappings for "page up" and "page down" to search the history
-# "\e[5~": history-search-backward
-# "\e[6~": history-search-forward
+# search history with arrows
+"\e[A": history-search-backward
+"\e[B": history-search-forward
