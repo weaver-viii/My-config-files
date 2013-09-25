@@ -115,7 +115,6 @@ xnoremap p pgvy
  Bundle 'jmartindf/vim-tcomment'
  Bundle 'vim-scripts/VimClojure'
  Bundle 'vim-scripts/plist.vim'
- Bundle 'jeffkreeftmeijer/vim-numbertoggle'
  Bundle 'jpalardy/vim-slime'
  Bundle 'juanpabloaj/help.vim'
  Bundle 'ervandew/supertab'
@@ -233,3 +232,8 @@ let g:lightline = {
       \  'separator': { 'left': '⮀', 'right': '⮂' },
       \  'subseparator': { 'left': '⮁', 'right': '⮃' }
       \}
+
+"=============== Linenumbers =========================
+
+set relativenumber 
+set number   
