@@ -7,13 +7,6 @@ if has("autocmd")
   autocmd bufwritepost .vimrc source $MYVIMRC
 endif"
 
-" =============== Pathogen Initialization ===============
-" This loads all the plugins in ~/.vim/bundle
-" Use tpope's pathogen plugin to manage all other plugins
-
- call pathogen#infect()
- call pathogen#helptags()
-
 " ================ General Config ====================
 
 set number                      "Line numbers are good
@@ -114,7 +107,7 @@ xnoremap p pgvy
  " My Bundles here:
  "
  " original repos on github
- Bundle 'Lokaltog/vim-powerline'
+ Bundle 'itchyny/lightline.vim'
  Bundle 'scrooloose/nerdtree.git'
  Bundle 'altercation/vim-colors-solarized'
  Bundle 'tsaleh/vim-align.git'
@@ -189,7 +182,7 @@ filetype plugin on
 filetype indent on
 
 " Display tabs and trailing spaces visually
-set list listchars=tab:\ \ ,trail:·
+" set list listchars=tab:\ \ ,trail:·
 
 set nowrap       "Don't wrap lines
 set linebreak    "Wrap lines at convenient points
@@ -229,3 +222,14 @@ let Tlist_Exit_OnlyWindow=1
 " ================ Haskell ===========================
 
 au BufEnter *.hs compiler ghc
+
+" ============== LightLine config ====================
+
+let g:lightline = {
+      \  'colorscheme': 'wombat',
+      \  'component': {
+      \    'readonly': '%{&readonly?"⭤":""}',
+      \  },
+      \  'separator': { 'left': '⮀', 'right': '⮂' },
+      \  'subseparator': { 'left': '⮁', 'right': '⮃' }
+      \}

@@ -1,5 +1,5 @@
 # Init rbenv
-eval "$(rbenv init -)"
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 #Maven
 export MAVEN_OPTS="-Xmx1024M -XX:MaxPermSize=256M  -Dlogback.configurationFile=file:/Users/torbjorn/Development/workspace/SG/ff2/front/src/main/resources/logback-torbjorn.xml"
@@ -29,6 +29,9 @@ export SBT_OPTS='-Xmx1500M -XX:MaxPermSize=512M'
 #EDITOR
 export EDITOR=/usr/local/bin/vim
 
+#rbenv
+export RBENV_ROOT=/usr/local/var/rbenv
+
 #Aliases
 alias ls='ls -G'
 alias ll='ls -lh'
@@ -37,9 +40,14 @@ alias st='git st'
 alias gitx='gitx --all'
 alias g='git'
 alias git=hub
+alias gpg=gpg2
 complete -o default -o nospace -F _git g
 alias ?='cat ~/bin/terminal_help'
-alias c="ruby ~/bin/c.rb"
+if [ -f '~/bin/c.rb' ]; then
+  alias c="ruby ~/bin/c.rb"
+  #Growl the c status
+  growlnotify -m "`c ?`"
+fi
 alias sed='gsed'
 alias clj='rlwrap clj'
 alias vi='vim'
@@ -99,9 +107,6 @@ function proxyEnabled() {
 #Prompt
 PS1='\[\033[0;31m\]\w\[\033[0;33m\] $(__git_ps1 " (%s)")\[\033[0;00m\]$(commitTime)\n$(proxyEnabled)❤ '
 
-#Growl the c status
-growlnotify -m "`c ?`"
-
 #Setting the tab title
 function mycd() {
   if [ -n "$*" ]; then
@@ -113,5 +118,24 @@ function mycd() {
 }
 alias cd=mycd
 
-whosonport () { lsof -i :$*; }
-
+# Mark and Jump stuff
+export MARKPATH=$HOME/.marks
+function jump { 
+    cd "$MARKPATH/$1" 2>/dev/null || echo "No such mark: $1"
+}
+function mark { 
+    mkdir "$MARKPATH"; ln -s "$(pwd)" "$MARKPATH/$1"
+}
+function unmark { 
+    rm -i "$MARKPATH/$1"
+}
+function marks {
+    \ls -l "$MARKPATH" | tail -n +2 | sed 's/  / /g' | cut -d' ' -f9- | awk -F ' -> ' '{printf "%-10s -> %s\n", $1, $2}'
+}
+_completemarks() {
+  local curw=${COMP_WORDS[COMP_CWORD]}
+  local wordlist=$(find $MARKPATH -type l | sed -re 's/.*\/(.*)$/\1/g')
+  COMPREPLY=($(compgen -W '${wordlist[@]}' -- "$curw"))
+  return 0
+}
+complete -F _completemarks jump unmark
