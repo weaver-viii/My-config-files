@@ -2,7 +2,7 @@
 eval "$(rbenv init -)"
 
 #Maven
-export MAVEN_OPTS="-Xmx1024M -XX:MaxPermSize=256M  -Dlogback.configurationFile=file:/Users/torbjorn/Development/workspace/SG/ff2/front/src/main/resources/logback-torbjorn.xml"
+export MAVEN_OPTS="-Xmx1024M -XX:MaxPermSize=512M -Xms256M -Dlogback.configurationFile=file:/Users/torbjorn/Development/workspace/SG/ff2/front/src/main/resources/logback-torbjorn.xml"
 export REPO="$HOME/.m2/repository"
 
 #Akka
@@ -77,7 +77,9 @@ function proxy() {
   else
     echo "PROXY OFF"
     export http_proxy=
+    export HTTP_PROXY=
     export https_proxy=
+    export HTTPS_PROXY=
     export ALL_PROXY=
   fi
 }
