@@ -44,12 +44,6 @@ nnoremap <c-l> <c-w>l
 " Remap leader to ,
 let mapleader = ","
 
-" ,r returns to file explorer
-map ,r :Rexplore<CR>
-
-" ,l open TagList
-map ,tl :TlistToggle<CR>
-
 " Follow links in help
 map <F12> <C-]>
 
@@ -96,6 +90,7 @@ xnoremap p pgvy
 " ================ Vundle Settings ================
 
  filetype off                   " required!
+ set shell=/bin/bash            " needs bash to work
 
  set rtp+=~/.vim/bundle/vundle/
  call vundle#rc()
@@ -130,6 +125,7 @@ xnoremap p pgvy
  Bundle 'sukima/xmledit'
  Bundle 'tpope/vim-sensible'
  Bundle 'airblade/vim-gitgutter'
+ Bundle 'derekwyatt/vim-sbt'
 
 " Snipmate bundles"
  Bundle 'MarcWeber/vim-addon-mw-utils'
@@ -149,7 +145,8 @@ xnoremap p pgvy
 "turn on syntax highlighting and use solarized colorsheme
 syntax on
 set background=light
-colorscheme solarized
+"colorscheme solarized
+
 
 " Settings for Powerline
 let g:Powerline_symbols = 'fancy'
@@ -224,14 +221,14 @@ au BufEnter *.hs compiler ghc
 
 " ============== LightLine config ====================
 
-let g:lightline = {
-      \  'colorscheme': 'wombat',
-      \  'component': {
-      \    'readonly': '%{&readonly?"⭤":""}',
-      \  },
-      \  'separator': { 'left': '⮀', 'right': '⮂' },
-      \  'subseparator': { 'left': '⮁', 'right': '⮃' }
-      \}
+"let g:lightline = {
+"      \  'colorscheme': 'wombat',
+"      \  'component': {
+"      \    'readonly': '%{&readonly?"⭤":""}',
+"      \  },
+"      \  'separator': { 'left': '⮀', 'right': '⮂' },
+"      \  'subseparator': { 'left': '⮁', 'right': '⮃' }
+"      \}
 
 "=============== Linenumbers =========================
 
