@@ -126,6 +126,7 @@ xnoremap p pgvy
  Bundle 'tpope/vim-sensible'
  Bundle 'airblade/vim-gitgutter'
  Bundle 'derekwyatt/vim-sbt'
+ Bundle 'vim-scripts/fish-syntax'
 
 " Snipmate bundles"
  Bundle 'MarcWeber/vim-addon-mw-utils'
