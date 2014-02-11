@@ -26,7 +26,7 @@
               "pmeta-shift-backspace" [:clear-inline-results]
               "pmeta-backspace" [:editor.delete-line]
 
-              "ctrl-d" [:paredit.select.parent]
+              "ctrl-p" [:paredit.select.parent]
               "ctrl-h" [:paredit.grow.left]
               "ctrl-t" [:paredit.shrink.left]
               "ctrl-n" [:paredit.shrink.right]

@@ -1,5 +1,9 @@
 ### PATH ###
 set default_path /usr/bin /usr/sbin /bin /sbin
-set homebrew /usr/local/bin 
+set homebrew /usr/local/bin /usr/local/sbin
 set lejos /opt/leJOS_NXJ_0.9.1beta-3/bin
-set -gx PATH $lejos $homebrew $default_path
+set rbenv_bin $HOME/.rbenv/bin
+set rbenv_shims $HOME/.rbenv/shims
+set -gx PATH $rbenv_bin $rbenv_shims $lejos $homebrew $default_path
+
+rbenv rehash >/dev/null ^&1
