@@ -93,6 +93,8 @@ xnoremap p pgvy
  set shell=/bin/bash            " needs bash to work
 
  set rtp+=~/.vim/bundle/vundle/
+ " Go support
+ set rtp+=/usr/local/Cellar/go/1.2.1/libexec/misc/vim
  call vundle#rc()
 
  " let Vundle manage Vundle
@@ -127,6 +129,9 @@ xnoremap p pgvy
  Bundle 'airblade/vim-gitgutter'
  Bundle 'derekwyatt/vim-sbt'
  Bundle 'vim-scripts/fish-syntax'
+ Bundle 'elixir-lang/vim-elixir'
+ Bundle 'mattonrails/vim-mix'
+ Bundle 'kchmck/vim-coffee-script'
 
 " Snipmate bundles"
  Bundle 'MarcWeber/vim-addon-mw-utils'

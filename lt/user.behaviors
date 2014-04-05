@@ -17,6 +17,7 @@
      ;; The editor tag is applied to all editors
      :editor [:lt.plugins.vim/activate-vim
               :lt.objs.editor/no-wrap
+              :lt.objs.editor/line-numbers
               (:lt.objs.style/set-theme "ambiance")]
 
      ;; Here we can add behaviors to just clojure editors
