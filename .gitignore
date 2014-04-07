@@ -4,3 +4,10 @@ fish/functions/dev1.fish
 fish/functions/dev2.fish
 fish/functions/uat1.fish
 fish/functions/uat2.fish
+fish/functions/ci1.fish
+fish/functions/ci2.fish
+fish/functions/multiprod.fish
+fish/functions/prod1.fish
+fish/functions/prod2.fish
+fish/functions/st2.fish
+fish/functions/st1.fish
