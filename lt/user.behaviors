@@ -21,7 +21,13 @@
               (:lt.objs.style/set-theme "ambiance")]
 
      ;; Here we can add behaviors to just clojure editors
-     :editor.clojure [(:lt.objs.langs.clj/print-length 1000)]}
+     :editor.clojure [(:lt.objs.langs.clj/print-length 1000)]
+
+
+     :files[(:lt.objs.files/file-types [{:exts [:erb],
+                                          :mime "text/x-ruby",
+                                          :name "Erb",
+                                          :tags [:editor.ruby]}])]}}
 
  ;; You can use the subtract key to remove behavior that may get added by
  ;; another diff

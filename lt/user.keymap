@@ -16,7 +16,8 @@
                             :set-syntax]
 
            "pmeta-alt-left" [:tabs.prev]
-           "pmeta-alt-right" [:tabs.next]}
+           "pmeta-alt-right" [:tabs.next]
+           "pmeta-ctrl-shift-c" [:clear-console]}
 
      :editor {"pmeta--" [:toggle-comment-selection]
               "pmeta-d" [:editor.doc.toggle]
