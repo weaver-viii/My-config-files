@@ -132,6 +132,7 @@ xnoremap p pgvy
  Bundle 'elixir-lang/vim-elixir'
  Bundle 'mattonrails/vim-mix'
  Bundle 'kchmck/vim-coffee-script'
+ Bundle 'elzr/vim-json'
 
 " Snipmate bundles"
  Bundle 'MarcWeber/vim-addon-mw-utils'

@@ -8,3 +8,5 @@ set rbenv_shims $HOME/.rbenv/shims
 set -gx PATH $rbenv_bin $rbenv_shims $postgres $lejos $homebrew $default_path
 
 rbenv rehash >/dev/null ^&1
+
+. /opt/z-fish/z.fish

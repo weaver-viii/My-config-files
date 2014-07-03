@@ -21,6 +21,3 @@ set completion-ignore-case on
 "\e[5~": beginning-of-history
 "\e[6~": end-of-history
 
-# search history with arrows
-"\e[A": history-search-backward
-"\e[B": history-search-forward

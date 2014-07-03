@@ -25,6 +25,7 @@
               "pmeta-shift-l" [:goto-line]
 
               "pmeta-shift-backspace" [:clear-inline-results]
+              "pmeta-ctrl-backspace" [:clear-console]
               "pmeta-backspace" [:editor.delete-line]
 
               "ctrl-p" [:paredit.select.parent]
