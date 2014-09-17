@@ -32,7 +32,7 @@ function fish_prompt --description 'Write out the prompt'
 	echo -n (prompt_pwd)
 	set_color normal
   # Populate z database
-  z --add "$PWD"
+  # z --add "$PWD"
 
 	printf '%s ' (__fish_git_prompt )
 
