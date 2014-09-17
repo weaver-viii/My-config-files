@@ -27,7 +27,7 @@
      :files[(:lt.objs.files/file-types [{:exts [:erb],
                                           :mime "text/x-ruby",
                                           :name "Erb",
-                                          :tags [:editor.ruby]}])]}}
+                                          :tags [:editor.ruby]}])]}
 
  ;; You can use the subtract key to remove behavior that may get added by
  ;; another diff

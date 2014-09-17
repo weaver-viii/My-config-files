@@ -7,6 +7,13 @@ set rbenv_bin $HOME/.rbenv/bin
 set rbenv_shims $HOME/.rbenv/shims
 set -gx PATH $rbenv_bin $rbenv_shims $postgres $lejos $homebrew $default_path
 
+### BOOT2DOCKER ###
+set -x DOCKER_HOST "tcp://192.168.59.103:2375"
+
+
+### SBT ###
+set -x SBT_OPTS "-XX:+CMSClassUnloadingEnabled -Xmx1500M -XX:MaxPermSize=512M"
+
 rbenv rehash >/dev/null ^&1
 
 . /opt/z-fish/z.fish
