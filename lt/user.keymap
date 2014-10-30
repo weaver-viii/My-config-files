@@ -17,22 +17,43 @@
 
            "pmeta-alt-left" [:tabs.prev]
            "pmeta-alt-right" [:tabs.next]
+           "pmeta-alt-up" [:tabset.next]
+           "pmeta-alt-down" [:tabset.prev]
            "pmeta-ctrl-shift-c" [:clear-console]}
 
      :editor {"pmeta--" [:toggle-comment-selection]
               "pmeta-d" [:editor.doc.toggle]
               "pmeta-l" [:editor.select-line]
               "pmeta-shift-l" [:goto-line]
+              "pmeta-j" [:smart-indent-selection]
 
               "pmeta-shift-backspace" [:clear-inline-results]
               "pmeta-ctrl-backspace" [:clear-console]
               "pmeta-backspace" [:editor.delete-line]
 
-              "ctrl-p" [:paredit.select.parent]
-              "ctrl-h" [:paredit.grow.left]
-              "ctrl-t" [:paredit.shrink.left]
-              "ctrl-n" [:paredit.shrink.right]
-              "ctrl-s" [:paredit.grow.right]
-
               "alt-w" [:editor.watch.watch-selection]
-              "alt-shift-w" [:editor.watch.unwatch]}}}
+              "alt-shift-w" [:editor.watch.unwatch]}
+
+     :editor.clj {;; moving in a sea of parens
+                  ;; grow and shrink
+                  "ctrl-h" [:paredit.grow.left]
+                  "ctrl-t" [:paredit.shrink.left]
+                  "ctrl-n" [:paredit.shrink.right]
+                  "ctrl-s" [:paredit.grow.right]
+                  ;; splice & kill
+                  "alt-s" [:paredit-plus.splice-sexp]
+                  "alt-up" [:paredit-plus.splice-sexp-killing-backward]
+                  "alt-down" [:paredit-plus.splice-sexp-killing-forward]
+                  "alt-k" [:paredit-plus.kill]
+                  ;; split & join
+                  "alt--" [:paredit-plus.split-sexp]
+                  "alt-shift--" [:paredit-plus.join-sexps]
+                  ;; select
+                  "ctrl-p" [:paredit.select.parent]
+                  "ctrl-shift-p" [:paredit.select.clear]
+                  ;; wrap in parens
+                  "alt-w" [:paredit-plus.wrap-round]
+                  "alt-shift-w" [:paredit.unwrap.parent]
+                  "alt-shift-[" [:paredit-plus.wrap-square]
+                  "alt-shift-]" [:paredit-plus.wrap-curly]
+                  "alt-2" [:paredit-plus.wrap-quote]}}}
