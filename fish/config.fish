@@ -8,11 +8,13 @@ set rbenv_shims $HOME/.rbenv/shims
 set -gx PATH $rbenv_bin $rbenv_shims $postgres $lejos $homebrew $default_path
 
 ### BOOT2DOCKER ###
-set -x DOCKER_HOST "tcp://192.168.59.103:2375"
+set -x DOCKER_HOST "tcp://192.168.59.103:2376"
+set -x DOCKER_CERT_PATH "/Users/torvatn/.boot2docker/certs/boot2docker-vm"
+set -x DOCKER_TLS_VERIFY 1
 
-
-### SBT ###
-set -x SBT_OPTS "-XX:+CMSClassUnloadingEnabled -Xmx1500M -XX:MaxPermSize=512M"
+### LOCALE ###
+set -x LC_ALL "en_US.UTF-8"
+set -x LANG "en_US.UTF-8"
 
 rbenv rehash >/dev/null ^&1
 
