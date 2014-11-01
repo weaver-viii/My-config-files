@@ -92,58 +92,60 @@ xnoremap p pgvy
  filetype off                   " required!
  set shell=/bin/bash            " needs bash to work
 
- set rtp+=~/.vim/bundle/vundle/
+ set rtp+=~/.vim/bundle/Vundle.vim
  " Go support
  set rtp+=/usr/local/Cellar/go/1.2.1/libexec/misc/vim
- call vundle#rc()
+ call vundle#begin()
 
  " let Vundle manage Vundle
  " required! 
- Bundle 'gmarik/vundle'
+ Plugin 'gmarik/Vundle.vim'
 
- " My Bundles here:
+ " My Plugins here:
  "
  " original repos on github
- Bundle 'itchyny/lightline.vim'
- Bundle 'scrooloose/nerdtree.git'
- Bundle 'altercation/vim-colors-solarized'
- Bundle 'tsaleh/vim-align.git'
- Bundle 'derekwyatt/vim-scala'
- Bundle 'jmartindf/vim-tcomment'
- Bundle 'vim-scripts/VimClojure'
- Bundle 'vim-scripts/plist.vim'
- Bundle 'jpalardy/vim-slime'
- Bundle 'juanpabloaj/help.vim'
- Bundle 'ervandew/supertab'
- Bundle 'Townk/vim-autoclose'
- Bundle 'vim-scripts/surround.vim'
- Bundle 'epeli/slimux'
- Bundle 'vim-scripts/taglist.vim'
- Bundle 'lukerandall/haskellmode-vim'
- Bundle 'jistr/vim-nerdtree-tabs'
- Bundle 'kien/ctrlp.vim'
- Bundle 'liquidz/lein-vim'
- Bundle 'tpope/vim-fugitive'
- Bundle 'sukima/xmledit'
- Bundle 'tpope/vim-sensible'
- Bundle 'airblade/vim-gitgutter'
- Bundle 'derekwyatt/vim-sbt'
- Bundle 'vim-scripts/fish-syntax'
- Bundle 'elixir-lang/vim-elixir'
- Bundle 'mattonrails/vim-mix'
- Bundle 'kchmck/vim-coffee-script'
- Bundle 'elzr/vim-json'
+ Plugin 'itchyny/lightline.vim'
+ Plugin 'scrooloose/nerdtree.git'
+ Plugin 'altercation/vim-colors-solarized'
+ Plugin 'tsaleh/vim-align.git'
+ Plugin 'derekwyatt/vim-scala'
+ Plugin 'jmartindf/vim-tcomment'
+ Plugin 'vim-scripts/VimClojure'
+ Plugin 'vim-scripts/plist.vim'
+ Plugin 'jpalardy/vim-slime'
+ Plugin 'juanpabloaj/help.vim'
+ Plugin 'ervandew/supertab'
+ Plugin 'Townk/vim-autoclose'
+ Plugin 'vim-scripts/surround.vim'
+ Plugin 'epeli/slimux'
+ Plugin 'vim-scripts/taglist.vim'
+ Plugin 'lukerandall/haskellmode-vim'
+ Plugin 'jistr/vim-nerdtree-tabs'
+ Plugin 'kien/ctrlp.vim'
+ Plugin 'liquidz/lein-vim'
+ Plugin 'tpope/vim-fugitive'
+ Plugin 'sukima/xmledit'
+ Plugin 'tpope/vim-sensible'
+ Plugin 'airblade/vim-gitgutter'
+ Plugin 'derekwyatt/vim-sbt'
+ Plugin 'vim-scripts/fish-syntax'
+ Plugin 'elixir-lang/vim-elixir'
+ Plugin 'mattonrails/vim-mix'
+ Plugin 'kchmck/vim-coffee-script'
+ Plugin 'elzr/vim-json'
+ Plugin 'docker/docker', {'rtp': 'contrib/syntax/vim'}
+ Plugin 'ingydotnet/yaml-vim'
 
 " Snipmate bundles"
- Bundle 'MarcWeber/vim-addon-mw-utils'
- Bundle 'tomtom/tlib_vim'
- Bundle 'snipmate-snippets'
- Bundle 'garbas/vim-snipmate'
+ Plugin 'MarcWeber/vim-addon-mw-utils'
+ Plugin 'tomtom/tlib_vim'
+ Plugin 'snipmate-snippets'
+ Plugin 'garbas/vim-snipmate'
  " vim-scripts repos
  " non github repos
  " ...
-
- filetype plugin indent on     " required! 
+ call vundle#end()
+filetype plugin indent on     " required! 
 
 " Settings for VimClojure
  let vimclojure#HighlightBuiltins=1      " Highlight Clojure's builtins

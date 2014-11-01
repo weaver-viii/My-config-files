@@ -16,6 +16,9 @@ set -x DOCKER_TLS_VERIFY 1
 set -x LC_ALL "en_US.UTF-8"
 set -x LANG "en_US.UTF-8"
 
+### SBT ###
+set -x SBT_OPTS "-XX:+CMSClassUnloadingEnabled -Xmx1500M -XX:MaxPermSize=512M"
+
 rbenv rehash >/dev/null ^&1
 
 . /opt/z-fish/z.fish
