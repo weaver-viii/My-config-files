@@ -1,4 +1,4 @@
-### PATH ###
+## PATH ###
 set default_path /usr/bin /usr/sbin /bin /sbin
 set homebrew /usr/local/bin /usr/local/sbin
 set lejos /opt/leJOS_NXJ_0.9.1beta-3/bin
@@ -18,6 +18,9 @@ set -x LANG "en_US.UTF-8"
 
 ### SBT ###
 set -x SBT_OPTS "-XX:+CMSClassUnloadingEnabled -Xmx1500M -XX:MaxPermSize=512M"
+
+### JAVA ###
+set -x JAVA_HOME (/usr/libexec/java_home -v 1.7)
 
 rbenv rehash >/dev/null ^&1
 

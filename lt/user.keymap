@@ -19,7 +19,7 @@
            "pmeta-alt-right" [:tabs.next]
            "pmeta-alt-up" [:tabset.next]
            "pmeta-alt-down" [:tabset.prev]
-           "pmeta-ctrl-shift-c" [:clear-console]}
+           "pmeta-ctrl-backspace" [:clear-console]}
 
      :editor {"pmeta--" [:toggle-comment-selection]
               "pmeta-d" [:editor.doc.toggle]
@@ -28,7 +28,6 @@
               "pmeta-j" [:smart-indent-selection]
 
               "pmeta-shift-backspace" [:clear-inline-results]
-              "pmeta-ctrl-backspace" [:clear-console]
               "pmeta-backspace" [:editor.delete-line]
 
               "alt-w" [:editor.watch.watch-selection]
@@ -52,8 +51,8 @@
                   "ctrl-p" [:paredit.select.parent]
                   "ctrl-shift-p" [:paredit.select.clear]
                   ;; wrap in parens
-                  "alt-w" [:paredit-plus.wrap-round]
-                  "alt-shift-w" [:paredit.unwrap.parent]
-                  "alt-shift-[" [:paredit-plus.wrap-square]
-                  "alt-shift-]" [:paredit-plus.wrap-curly]
+                  "alt-r" [:paredit-plus.wrap-round]
+                  "alt-shift-r" [:paredit.unwrap.parent]
+                  "alt-ctrl-8" [:paredit-plus.wrap-square]
+                  "alt-ctrl-9" [:paredit-plus.wrap-curly]
                   "alt-2" [:paredit-plus.wrap-quote]}}}
