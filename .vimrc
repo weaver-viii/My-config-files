@@ -135,6 +135,7 @@ xnoremap p pgvy
  Plugin 'elzr/vim-json'
  Plugin 'docker/docker', {'rtp': 'contrib/syntax/vim'}
  Plugin 'ingydotnet/yaml-vim'
+ Plugin 'Valloric/YouCompleteMe'
 
 " Snipmate bundles"
  Plugin 'MarcWeber/vim-addon-mw-utils'

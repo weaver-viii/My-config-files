@@ -13,7 +13,8 @@
      ;; The app tag is kind of like global scope. You assign behaviors that affect
      ;; all of Light Table here
      :app [(:lt.objs.style/set-skin "dark")
-           (:lt.objs.console/set-console-limit 10000)]
+           (:lt.objs.console/set-console-limit 10000)
+           :lt.objs.opener/save-all-on-focus-lost]
 
      ;; The editor tag is applied to all editors
      :editor [:lt.plugins.vim/activate-vim

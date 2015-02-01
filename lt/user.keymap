@@ -55,4 +55,6 @@
                   "alt-shift-r" [:paredit.unwrap.parent]
                   "alt-ctrl-8" [:paredit-plus.wrap-square]
                   "alt-ctrl-9" [:paredit-plus.wrap-curly]
-                  "alt-2" [:paredit-plus.wrap-quote]}}}
+                  "alt-2" [:paredit-plus.wrap-quote]}
+     :editor.haskell {"ctrl-t" [:editor-type-form]}}}
+
