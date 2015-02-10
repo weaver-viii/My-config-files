@@ -18,10 +18,10 @@ set -x LC_ALL "en_US.UTF-8"
 set -x LANG "en_US.UTF-8"
 
 ### SBT ###
-set -x SBT_OPTS "-XX:+CMSClassUnloadingEnabled -Xmx1500M -XX:MaxPermSize=512M"
+set -x SBT_OPTS "-XX:+CMSClassUnloadingEnabled -Xmx1500M"
 
 ### JAVA ###
-set -x JAVA_HOME (/usr/libexec/java_home -v 1.7)
+set -x JAVA_HOME (/usr/libexec/java_home -v 1.8)
 
 rbenv rehash >/dev/null ^&1
 
