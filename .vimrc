@@ -135,7 +135,6 @@ xnoremap p pgvy
  Plugin 'elzr/vim-json'
  Plugin 'docker/docker', {'rtp': 'contrib/syntax/vim'}
  Plugin 'ingydotnet/yaml-vim'
- Plugin 'Valloric/YouCompleteMe'
 
 " Snipmate bundles"
  Plugin 'MarcWeber/vim-addon-mw-utils'
@@ -219,6 +218,13 @@ set sidescroll=1
 let g:clj_highlight_builtins=1      " Highlight Clojure's builtins
 let g:clj_paren_rainbow=1           " Rainbow parentheses'!
 let g:slime_target = "tmux"
+
+" ================ Boot ==============================
+
+set backup
+set swapfile
+set backupdir=~/.vim-tmp
+set directory=~/.vim-tmp
 
 " ================ Tag List ==========================
 

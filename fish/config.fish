@@ -6,7 +6,8 @@ set postgres /Applications/Postgres93.app/Contents/MacOS/bin
 set rbenv_bin $HOME/.rbenv/bin
 set rbenv_shims $HOME/.rbenv/shims
 set cabal_bin $HOME/.cabal/bin
-set -gx PATH $cabal_bin $rbenv_bin $rbenv_shims $postgres $lejos $homebrew $default_path
+set finnbuild /opt/finnbuild/latest/bin
+set -gx PATH $finnbuild $cabal_bin $rbenv_bin $rbenv_shims $postgres $lejos $homebrew $default_path
 
 ### BOOT2DOCKER ###
 set -x DOCKER_HOST "tcp://192.168.59.103:2376"
