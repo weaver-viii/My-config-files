@@ -5,6 +5,7 @@ set nocompatible
 " Source the vimrc file after saving it
 if has("autocmd")
   autocmd bufwritepost .vimrc source $MYVIMRC
+  autocmd InsertLeave,TextChanged * if expand('%') != '' | update | endif
 endif"
 
 " ================ General Config ====================
