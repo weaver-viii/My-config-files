@@ -12,3 +12,4 @@ fish/functions/prod2.fish
 fish/functions/st2.fish
 fish/functions/st1.fish
 fish/functions/multibfft.fish
+fish/fish_read_history
