@@ -1,60 +1,42 @@
-;; User keymap
-;; -----------------------------
-;; Keymaps are stored as a set of diffs that are merged together together
-;; to create the final set of keys. You can modify these diffs to either add
-;; or subtract bindings.
-;;
-;; Like behaviors, keys are bound by tag. When objects with those tags are active
-;; the key bindings are live. Keys can be bound to any number of Light Table commands,
-;; allowing you the flexibility to execute multiple operations together. To see a list
-;; of all the commands you can execute, start typing a word related to the thing you
-;; want to do in between the square brackets (e.g. type "editor").
+;; Your file has been converted to the new flat format.
+;; Conversion does not preserve comments or indentation.
+;; File is backed up at /Users/torvatn/Library/Application Support/LightTable/User/user.keymap.bak
+[
+ [:app "pmeta-shift-c" :toggle-console]
+ [:app "pmeta-alt-right" :tabs.next]
+ [:app "pmeta-alt-left" :tabs.prev]
+ [:app "pmeta-shift-n" :new-file :set-syntax]
+ [:app "pmeta-shift-w" :workspace.show]
+ [:app "pmeta-ctrl-backspace" :clear-console]
+ [:app "pmeta-alt-up" :tabset.next]
+ [:app "pmeta-alt-down" :tabset.prev]
 
-{:+ {:app {"pmeta-shift-w" [:workspace.show]
-           "pmeta-shift-c" [:toggle-console]
-           "pmeta-shift-n" [:new-file
-                            :set-syntax]
+ [:editor.keys.hinting.active "-enter" [:passthrough]]
+ [:editor "pmeta-backspace" :editor.delete-line]
+ [:editor "alt-shift-w" :editor.watch.unwatch]
+ [:editor "pmeta-shift-l" :goto-line]
+ [:editor "pmeta-d" :editor.doc.toggle]
+ [:editor "pmeta-j" :smart-indent-selection]
+ [:editor "alt-w" :editor.watch.watch-selection]
+ [:editor "pmeta-l" :editor.select-line]
+ [:editor "pmeta--" :toggle-comment-selection]
+ [:editor "pmeta-shift-backspace" :clear-inline-results]
 
-           "pmeta-alt-left" [:tabs.prev]
-           "pmeta-alt-right" [:tabs.next]
-           "pmeta-alt-up" [:tabset.next]
-           "pmeta-alt-down" [:tabset.prev]
-           "pmeta-ctrl-backspace" [:clear-console]}
-
-     :editor {"pmeta--" [:toggle-comment-selection]
-              "pmeta-d" [:editor.doc.toggle]
-              "pmeta-l" [:editor.select-line]
-              "pmeta-shift-l" [:goto-line]
-              "pmeta-j" [:smart-indent-selection]
-
-              "pmeta-shift-backspace" [:clear-inline-results]
-              "pmeta-backspace" [:editor.delete-line]
-
-              "alt-w" [:editor.watch.watch-selection]
-              "alt-shift-w" [:editor.watch.unwatch]}
-
-     :editor.clj {;; moving in a sea of parens
-                  ;; grow and shrink
-                  "ctrl-h" [:paredit.grow.left]
-                  "ctrl-t" [:paredit.shrink.left]
-                  "ctrl-n" [:paredit.shrink.right]
-                  "ctrl-s" [:paredit.grow.right]
-                  ;; splice & kill
-                  "alt-s" [:paredit-plus.splice-sexp]
-                  "alt-up" [:paredit-plus.splice-sexp-killing-backward]
-                  "alt-down" [:paredit-plus.splice-sexp-killing-forward]
-                  "alt-k" [:paredit-plus.kill]
-                  ;; split & join
-                  "alt--" [:paredit-plus.split-sexp]
-                  "alt-shift--" [:paredit-plus.join-sexps]
-                  ;; select
-                  "ctrl-p" [:paredit.select.parent]
-                  "ctrl-shift-p" [:paredit.select.clear]
-                  ;; wrap in parens
-                  "alt-r" [:paredit-plus.wrap-round]
-                  "alt-shift-r" [:paredit.unwrap.parent]
-                  "alt-ctrl-8" [:paredit-plus.wrap-square]
-                  "alt-ctrl-9" [:paredit-plus.wrap-curly]
-                  "alt-2" [:paredit-plus.wrap-quote]}
-     :editor.haskell {"ctrl-t" [:editor-type-form]}}}
-
+ [:editor.clj "ctrl-shift-p" :paredit.select.clear]
+ [:editor.clj "alt-shift-r" :paredit.unwrap.parent]
+ [:editor.clj "ctrl-h" :paredit.grow.left]
+ [:editor.clj "alt-down" :paredit-plus.splice-sexp-killing-forward]
+ [:editor.clj "alt-k" :paredit-plus.kill]
+ [:editor.clj "alt--" :paredit-plus.split-sexp]
+ [:editor.clj "ctrl-n" :paredit.shrink.right]
+ [:editor.clj "alt-2" :paredit-plus.wrap-quote]
+ [:editor.clj "alt-r" :paredit-plus.wrap-round]
+ [:editor.clj "ctrl-p" :paredit.select.parent]
+ [:editor.clj "alt-s" :paredit-plus.splice-sexp]
+ [:editor.clj "ctrl-s" :paredit.grow.right]
+ [:editor.clj "ctrl-t" :paredit.shrink.left]
+ [:editor.clj "alt-ctrl-8" :paredit-plus.wrap-square]
+ [:editor.clj "alt-ctrl-9" :paredit-plus.wrap-curly]
+ [:editor.clj "alt-shift--" :paredit-plus.join-sexps]
+ [:editor.clj "alt-up" :paredit-plus.splice-sexp-killing-backward]
+]

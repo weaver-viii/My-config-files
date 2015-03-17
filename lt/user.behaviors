@@ -1,39 +1,18 @@
-;; User behaviors
-;; -----------------------------
-;; Behaviors are stored as a set of diffs that are merged together
-;; to create the final set of functionality that makes up Light Table. You can
-;; modify these diffs to either add or subtract functionality.
-;;
-;; Behaviors are added to tags, objects with those tags then automatically gain
-;; whatever logic the behavior imparts. To see a list of user-level behaviors,
-;; start typing a word related to the functionality you want in between the square
-;; brackets (e.g. "theme").
+;; Your file has been converted to the new flat format.
+;; Conversion does not preserve comments or indentation.
+;; File is backed up at /Users/torvatn/Library/Application Support/LightTable/User/user.behaviors.bak
+[
+ [:app :lt.objs.style/set-skin "dark"]
+ [:app :lt.objs.console/set-console-limit 10000]
+ [:app :-lt.objs.intro/show-intro]
+ [:app :lt.objs.settings/pair-keymap-diffs]
 
-{:+ {
-     ;; The app tag is kind of like global scope. You assign behaviors that affect
-     ;; all of Light Table here
-     :app [(:lt.objs.style/set-skin "dark")
-           (:lt.objs.console/set-console-limit 10000)
-           :lt.objs.opener/save-all-on-focus-lost]
+ [:editor :lt.plugins.vim/activate-vim]
+ [:editor :lt.plugins.auto-complete/auto-show-on-input]
+ [:editor :lt.objs.editor/no-wrap]
+ [:editor :lt.objs.style/font-settings "consolas" "13" ""]
+ [:editor :lt.objs.editor/line-numbers]
+ [:editor :lt.objs.style/set-theme "zenburn"]
 
-     ;; The editor tag is applied to all editors
-     :editor [:lt.plugins.vim/activate-vim
-              :lt.plugins.auto-complete/auto-show-on-input
-              :lt.objs.editor/no-wrap
-              (:lt.objs.style/font-settings "consolas" "13" "")
-              :lt.objs.editor/line-numbers
-              (:lt.objs.style/set-theme "zenburn")]
-
-     ;; Here we can add behaviors to just clojure editors
-;;      :editor.clojure [(:lt.objs.langs.clj/print-length 1000)]
-
-
-     :files[(:lt.objs.files/file-types [{:exts [:erb],
-                                          :mime "text/x-ruby",
-                                          :name "Erb",
-                                          :tags [:editor.ruby]}])]}
-
- ;; You can use the subtract key to remove behavior that may get added by
- ;; another diff
- :- {:app [:lt.objs.intro/show-intro]}}
-
+ [:files :lt.objs.files/file-types [{:exts [:erb], :mime "text/x-ruby", :tags [:editor.ruby], :name "Erb"}]]
+]
