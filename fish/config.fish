@@ -10,6 +10,8 @@ set finnbuild /opt/finnbuild/latest/bin
 set -gx PATH $finnbuild $cabal_bin $rbenv_bin $rbenv_shims $postgres $lejos $homebrew $default_path
 
 ### BOOT2DOCKER ###
+# set -x DOCKER_CERT_PATH /Users/torvatn/.docker/machine/machines/localdocker;
+# set -x DOCKER_HOST "tcp://192.168.99.100:2376"
 set -x DOCKER_HOST "tcp://192.168.59.103:2376"
 set -x DOCKER_CERT_PATH "/Users/torvatn/.boot2docker/certs/boot2docker-vm"
 set -x DOCKER_TLS_VERIFY 1
@@ -23,6 +25,9 @@ set -x SBT_OPTS "-XX:+CMSClassUnloadingEnabled -Xmx1500M"
 
 ### JAVA ###
 set -x JAVA_HOME (/usr/libexec/java_home -v 1.8)
+
+## ANDROID ##
+set ANDROID_HOME "/usr/local/opt/android-sdk"
 
 rbenv rehash >/dev/null ^&1
 
