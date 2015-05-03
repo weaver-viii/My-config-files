@@ -29,6 +29,9 @@ set -x JAVA_HOME (/usr/libexec/java_home -v 1.8)
 ## ANDROID ##
 set ANDROID_HOME "/usr/local/opt/android-sdk"
 
+## BOOT ## 
+set BOOT_HOME ~/.boot
+
 rbenv rehash >/dev/null ^&1
 
 . /opt/z-fish/z.fish

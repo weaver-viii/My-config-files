@@ -1,6 +1,6 @@
 ;; Your file has been converted to the new flat format.
 ;; Conversion does not preserve comments or indentation.
-;; File is backed up at /Users/torvatn/Library/Application Support/LightTable/User/user.keymap.bak
+;; File is backed up at /Users/torbjorn/Library/Application Support/LightTable/User/user.keymap.bak
 [
  [:app "pmeta-shift-c" :toggle-console]
  [:app "pmeta-alt-right" :tabs.next]
@@ -11,7 +11,6 @@
  [:app "pmeta-alt-up" :tabset.next]
  [:app "pmeta-alt-down" :tabset.prev]
 
- [:editor.keys.hinting.active "-enter" [:passthrough]]
  [:editor "pmeta-backspace" :editor.delete-line]
  [:editor "alt-shift-w" :editor.watch.unwatch]
  [:editor "pmeta-shift-l" :goto-line]
@@ -39,4 +38,6 @@
  [:editor.clj "alt-ctrl-9" :paredit-plus.wrap-curly]
  [:editor.clj "alt-shift--" :paredit-plus.join-sexps]
  [:editor.clj "alt-up" :paredit-plus.splice-sexp-killing-backward]
+
+ [:editor.haskell "ctrl-t" :editor-type-form]
 ]

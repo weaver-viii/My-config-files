@@ -1,18 +1,19 @@
 ;; Your file has been converted to the new flat format.
 ;; Conversion does not preserve comments or indentation.
-;; File is backed up at /Users/torvatn/Library/Application Support/LightTable/User/user.behaviors.bak
+;; File is backed up at /Users/torbjorn/Library/Application Support/LightTable/User/user.behaviors.bak
 [
  [:app :lt.objs.style/set-skin "dark"]
  [:app :lt.objs.console/set-console-limit 10000]
+ [:app :lt.objs.opener/save-all-on-focus-lost]
  [:app :-lt.objs.intro/show-intro]
- [:app :lt.objs.settings/pair-keymap-diffs]
 
  [:editor :lt.plugins.vim/activate-vim]
  [:editor :lt.plugins.auto-complete/auto-show-on-input]
  [:editor :lt.objs.editor/no-wrap]
- [:editor :lt.objs.style/font-settings "consolas" "13" ""]
+ [:editor :lt.objs.style/font-settings "" "13" ""]
  [:editor :lt.objs.editor/line-numbers]
  [:editor :lt.objs.style/set-theme "zenburn"]
 
- [:files :lt.objs.files/file-types [{:exts [:erb], :mime "text/x-ruby", :tags [:editor.ruby], :name "Erb"}]]
+ [:files :lt.objs.files/file-types [{:exts [:erb], :mime "text/x-ruby", :tags [:editor.ruby], :name "Erb"}
+                                    {:exts [:boot], :mime "text/x-clojure", :tags [:editor.clj], :name "Boot"}]]
 ]
