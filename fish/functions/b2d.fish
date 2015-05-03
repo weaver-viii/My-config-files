@@ -1,3 +1,3 @@
-function boot2
+function b2d
   boot2docker up
 end
