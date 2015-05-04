@@ -143,10 +143,12 @@ xnoremap p pgvy
  Plugin 'vim-scripts/paredit.vim'
  Plugin 'venantius/vim-eastwood'
  Plugin 'venantius/vim-cljfmt'
+ Plugin 'ryanoasis/vim-webdevicons'
 
 " Snipmate bundles"
  Plugin 'MarcWeber/vim-addon-mw-utils'
  Plugin 'tomtom/tlib_vim'
+
  Plugin 'snipmate-snippets'
  Plugin 'garbas/vim-snipmate'
  " vim-scripts repos
