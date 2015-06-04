@@ -32,6 +32,10 @@ set ANDROID_HOME "/usr/local/opt/android-sdk"
 ## BOOT ## 
 set BOOT_HOME ~/.boot
 
+## NVM ##
+set -x NVM_DIR=~/.nvm
+source ~/dotfiles/fish/nvm-wrapper/nvm.fish
+
 rbenv rehash >/dev/null ^&1
 
 . /opt/z-fish/z.fish

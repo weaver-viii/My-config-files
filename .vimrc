@@ -144,6 +144,7 @@ xnoremap p pgvy
  Plugin 'venantius/vim-eastwood'
  Plugin 'venantius/vim-cljfmt'
  Plugin 'ryanoasis/vim-webdevicons'
+ Plugin 'diepm/vim-rest-console'
 
 " Snipmate bundles"
  Plugin 'MarcWeber/vim-addon-mw-utils'
@@ -279,3 +280,5 @@ set statusline+=%*
 let g:syntastic_python_checkers = ['pep8']
 let g:syntastic_html_tidy_ignore_errors=[" proprietary attribute \"ng-"]
 
+" ============== VRC ================================
+let g:vrc_follow_redirects=1
